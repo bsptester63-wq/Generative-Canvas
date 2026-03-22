@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generative Canvas</title>
+    <meta
+      name="description"
+      content="Create luminous algorithmic artwork instantly with palette, density, and symmetry controls."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="backdrop backdrop-one"></div>
+      <div class="backdrop backdrop-two"></div>
+
+      <main class="layout">
+        <section class="hero-card">
+          <div class="hero-copy">
+            <p class="eyebrow">Procedural art studio</p>
+            <h1>Generative Canvas</h1>
+            <p class="subtitle">Create algorithmic art instantly</p>
+            <p class="description">
+              Compose radiant geometric scenes with balanced symmetry, bold palettes, and a
+              one-click export workflow.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <button id="generateButton" class="primary-button">Generate artwork</button>
+            <button id="exportButton" class="secondary-button">Export image</button>
+          </div>
+        </section>
+
+        <section class="workspace-card">
+          <div class="canvas-panel">
+            <div class="canvas-header">
+              <div>
+                <h2>Live canvas</h2>
+                <p>Every render is unique. Tune the system or surprise yourself.</p>
+              </div>
+              <div class="seed-chip" id="seedChip">Seed 0000</div>
+            </div>
+            <div class="canvas-frame">
+              <canvas id="artCanvas" width="1400" height="1400" aria-label="Generative artwork preview"></canvas>
+            </div>
+          </div>
+
+          <aside class="controls-panel">
+            <div class="panel-title">
+              <h2>Controls</h2>
+              <p>Shape the composition and color story.</p>
+            </div>
+
+            <label class="control-group" for="densityRange">
+              <span>Density</span>
+              <div class="range-row">
+                <input id="densityRange" type="range" min="12" max="100" value="46" />
+                <output id="densityValue">46</output>
+              </div>
+            </label>
+
+            <label class="control-group" for="symmetryRange">
+              <span>Symmetry</span>
+              <div class="range-row">
+                <input id="symmetryRange" type="range" min="1" max="12" value="6" />
+                <output id="symmetryValue">6</output>
+              </div>
+            </label>
+
+            <label class="control-group" for="paletteSelect">
+              <span>Palette</span>
+              <select id="paletteSelect">
+                <option value="aurora">Aurora</option>
+                <option value="sunset">Sunset Bloom</option>
+                <option value="midnight">Midnight Prism</option>
+                <option value="lagoon">Electric Lagoon</option>
+              </select>
+            </label>
+
+            <div class="stats-grid">
+              <div>
+                <span class="stat-label">Layers</span>
+                <strong id="layersValue">0</strong>
+              </div>
+              <div>
+                <span class="stat-label">Mirrors</span>
+                <strong id="mirrorsValue">0</strong>
+              </div>
+              <div>
+                <span class="stat-label">Palette mood</span>
+                <strong id="paletteMood">-</strong>
+              </div>
+              <div>
+                <span class="stat-label">Canvas</span>
+                <strong>1400px</strong>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
