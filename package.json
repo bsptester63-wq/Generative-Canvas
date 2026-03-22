@@ -1,0 +1,10 @@
+{
+  "name": "generative-canvas",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "build": "rm -rf dist && mkdir -p dist/src && cp index.html dist/index.html && cp src/main.js dist/src/main.js && cp src/style.css dist/src/style.css",
+    "preview": "python3 -m http.server 4173 -d dist"
+  }
+}
